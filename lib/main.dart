@@ -1,13 +1,20 @@
+import 'package:contatosapp/pages/contato_formulario.dart';
 import 'package:contatosapp/pages/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  //Passando as rotas
+  static const HOME = '/';
+  static const CONTATO_FORM = '/';
+  static const CONTATO_LISTA = '/';
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -16,7 +23,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Home(),
+      routes: {
+        /**Este uma maneira de fazer as rotas */
+        HOME: (context) => const Home(),
+        CONTATO_FORM: (context) => const ContatoFormulario()
+      },
     );
   }
 }
